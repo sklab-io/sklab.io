@@ -2,10 +2,7 @@ try {
   ((msg) => {
     window.addEventListener('load', () => {
       console.log(msg);
-      const getAudioContext = () => () => { return new AudioContext(); };
-      console.log({
-        getAudioContext,
-      });
+      console.log(new AudioContext());
     });
   })('site loaded');
 } catch (e) {
