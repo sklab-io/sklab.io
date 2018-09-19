@@ -1,27 +1,29 @@
 
+/** GLOBAL SITE SCRIPTS **/
 
+/// Declare global objects in other files
+/// and add them to index.html.
+
+const handle = customError(`
+  Looks like your browser doesn't support ES6 or the Web Audio API.
+  Why not try out a modern browser?
+
+  - firefox.com
+  - chrome.com
+
+  <3`);
 
 try {
-  var context = new AudioContext();
-  const exceptionAlert = (e) => {
-    console.error(e);
-    alert(`
-        Seems like your browser doesn't support ES6.
-        
-        Check out a modern browser like FireFox (firefox.com) or Chrome (chrome.com).
-        
-        <3`);
-  };
   const init = (msg) => () => {
     try {
       console.log(msg);
     } catch (e) {
-      exceptionAlert();
+      handle(e);
     }
   };
   ((msg) => {
     window.addEventListener('load', init(msg));
   })('site loaded');
 } catch (e) {
-  exceptionAlert(e);
+  handle(e);
 }
