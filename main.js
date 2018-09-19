@@ -1,9 +1,11 @@
 try {
   ((msg) => {
-    const ctx = new AudioContext();
     window.addEventListener('load', () => {
       console.log(msg);
-      console.log(ctx);
+      const getAudioContext = () => () => { return new AudioContext(); };
+      console.log({
+        getAudioContext,
+      });
     });
   })('site loaded');
 } catch (e) {
