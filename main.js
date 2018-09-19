@@ -15,7 +15,6 @@ try {
   const init = (msg) => () => {
     try {
       console.log(msg);
-      throw msg;
     } catch (e) {
       exceptionAlert();
     }
