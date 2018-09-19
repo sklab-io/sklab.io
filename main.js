@@ -1,15 +1,22 @@
 
+const init = (msg) => () => {
+  try {
+    console.log(msg);
+  } catch (e) {
+    console.error(e);
+    alert(`
+      Seems like your browser doesn't support ES6.
+      
+      Check out a modern browser like FireFox (firefox.com) or Chrome (chrome.com).
+      
+      <3`);
+  }
+};
 
 try {
   var context = new AudioContext();
   ((msg) => {
-    window.addEventListener('load', () => {
-      console.log(msg);
-      if (typeof msg === 'string') {
-        throw "UH OH";
-      }
-      console.log(``)
-    });
+    window.addEventListener('load', init(msg));
   })('site loaded');
 } catch (e) {
   console.error(e);
